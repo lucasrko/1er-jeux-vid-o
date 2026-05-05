@@ -107,7 +107,7 @@ export class Game extends Phaser.Scene
         this.physics.add.collider(this.player, this.platforms);
 
         this.bullets = this.physics.add.group();
-        this.physics.add.collider(this.bullets,this.platforms,function (bullet,platform){bullet.destroy();
+        this.physics.add.collider(this.bullets,this.platforms,function (bullet){bullet.destroy();
 
         });
         //pour les bots
@@ -127,7 +127,7 @@ export class Game extends Phaser.Scene
         });
     }
 
-    update (time:number, delta: number)
+    update (time:number)
     {
         if (this.gameOver)
         {
@@ -251,7 +251,7 @@ export class Game extends Phaser.Scene
     }
 
     
-    prendreDegats(objetJoueur: any, objetBalle: any) {
+    prendreDegats( objetBalle: any) {
         const balle = objetBalle as Phaser.Physics.Arcade.Sprite;
         balle.destroy(); // La balle disparaît
 
